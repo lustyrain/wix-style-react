@@ -72,7 +72,7 @@ export default class Slider extends Component {
         tooltipValue = undefined;
       }
     } else {
-      tooltipValue = value;
+      tooltipValue = value.toString();
     }
 
     return (

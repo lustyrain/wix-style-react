@@ -108,7 +108,7 @@ SliderHandle.propTypes = {
   disabled: PropTypes.bool,
   displayTooltip: PropTypes.bool,
   offset: PropTypes.number,
-  value: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
+  value: PropTypes.string,
 };
 
 SliderHandle.defaultProps = {
