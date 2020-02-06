@@ -73,7 +73,6 @@ class SliderHandle extends Component {
       disabled,
       focusableOnFocus,
       focusableOnBlur,
-      tooltipValue,
     } = this.props;
     const { showTooltip } = this.state;
 
