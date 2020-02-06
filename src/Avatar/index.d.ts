@@ -20,6 +20,9 @@ export interface AvatarProps {
   color?: 'A1' | 'A2' | 'A3' | 'A4' | 'A5' | 'A6';
   className?: string;
   dataHook?: string;
+  presence?: 'online' | 'offline' | 'busy';
+  indication?: React.ReactNode;
+  onIndicationClick?(): void;
 }
 
 declare const Avatar: React.SFC<AvatarProps>;
