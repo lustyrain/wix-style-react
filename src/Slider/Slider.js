@@ -67,7 +67,7 @@ export default class Slider extends Component {
     if (this._isCustomMarks()) {
       const { marks } = this.props;
       if (marks.hasOwnProperty(value)) {
-        tooltipValue = marks[value];
+        tooltipValue = marks[value].toString();
       } else {
         tooltipValue = undefined;
       }
