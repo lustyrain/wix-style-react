@@ -126,7 +126,7 @@ class SliderWithState extends React.Component {
 
   state = { value: 3 };
 
-  change = (value) => this.setState({ value });
+  change = value => this.setState({ value });
 
   render() {
     const { value } = this.state;
