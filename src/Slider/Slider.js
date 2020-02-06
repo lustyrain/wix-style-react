@@ -60,7 +60,8 @@ export default class Slider extends Component {
   }
 
   _renderHandle = props => {
-    const { displayTooltip, disabled } = this.props;
+    const { displayTooltip, disabled, marks, value } = this.props;
+    const newValue = this._isCustomMarks() ? marks[value] : value;
 
     return (
       <SliderHandle
@@ -68,6 +69,7 @@ export default class Slider extends Component {
         displayTooltip={displayTooltip}
         disabled={disabled}
         {...props}
+        value={newValue}
       />
     );
   };

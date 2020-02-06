@@ -73,6 +73,7 @@ class SliderHandle extends Component {
       disabled,
       focusableOnFocus,
       focusableOnBlur,
+      tooltipValue,
     } = this.props;
     const { showTooltip } = this.state;
 
@@ -108,7 +109,7 @@ SliderHandle.propTypes = {
   disabled: PropTypes.bool,
   displayTooltip: PropTypes.bool,
   offset: PropTypes.number,
-  value: PropTypes.number,
+  value: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
 };
 
 SliderHandle.defaultProps = {
