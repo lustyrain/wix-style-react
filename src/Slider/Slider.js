@@ -19,7 +19,6 @@ const range = ({ min, max, step }) => {
  */
 export default class Slider extends Component {
   _getMarks() {
-    const { min, max, step } = this.props;
     const marksLabels = {};
 
     if (this._isCustomMarks()) {
@@ -31,6 +30,8 @@ export default class Slider extends Component {
         };
       });
     } else {
+      const { min, max, step } = this.props;
+
       range({ min, max, step }).map(entry => {
         marksLabels[entry] = {
           label: this._createMarkNode(entry, entry === min || entry === max),
@@ -60,8 +61,19 @@ export default class Slider extends Component {
   }
 
   _renderHandle = props => {
-    const { displayTooltip, disabled, marks, value } = this.props;
-    const newValue = this._isCustomMarks() ? marks[value] : value;
+    const { displayTooltip, disabled, value } = this.props;
+    let tooltipValue;
+
+    if (this._isCustomMarks()) {
+      const { marks } = this.props;
+      if (marks.hasOwnProperty(value)) {
+        tooltipValue = marks[value];
+      } else {
+        tooltipValue = undefined;
+      }
+    } else {
+      tooltipValue = value;
+    }
 
     return (
       <SliderHandle
@@ -69,7 +81,7 @@ export default class Slider extends Component {
         displayTooltip={displayTooltip}
         disabled={disabled}
         {...props}
-        value={newValue}
+        value={tooltipValue}
       />
     );
   };

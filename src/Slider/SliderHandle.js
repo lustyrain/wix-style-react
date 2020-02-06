@@ -90,7 +90,7 @@ class SliderHandle extends Component {
           data-hook="slider-handle"
           style={{ left: `${offset}%` }}
         />
-        {showTooltip && (
+        {showTooltip && value && (
           <div
             data-hook="slider-tooltip"
             className={styles.tooltip}
