@@ -120,3 +120,34 @@ class SliderWithState extends React.Component {
   }
 }
 `;
+
+export const customMarks = `
+class SliderWithState extends React.Component {
+
+  state = { value: 3 };
+
+  change = (value) => this.setState({ value });
+
+  render() {
+    const { value } = this.state;
+    const marks = {
+            '-10': '-10°C',
+            0: '0°C',
+            26: '26°C',
+            37: '37°C',
+            50: '50°C',
+            100:'100°C'
+        };
+
+    return (
+       <Layout>
+        <Cell>
+        <Slider marks={marks} onChange={this.change} min={-10}
+        max={100} value={value} />
+         </Cell>
+      </Layout>
+    );
+  }
+}
+
+`;

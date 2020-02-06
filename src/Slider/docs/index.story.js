@@ -116,6 +116,11 @@ export default {
               text: 'Slider supports `disabled` state.',
               source: examples.states,
             },
+            {
+              title: 'Custom Marks',
+              text: 'Slider custom marks',
+              source: examples.customMarks,
+            },
           ].map(example),
         ],
       }),
