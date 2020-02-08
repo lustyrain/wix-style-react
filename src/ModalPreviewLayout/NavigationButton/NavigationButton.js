@@ -19,7 +19,6 @@ const tooltipProps = {
     className: styles.modalTooltip,
     upgrade: true,
     appendTo: 'scrollParent',
-    content: <Text children="Next" />,
     placement: 'right',
   },
   [arrowsDirection.leftArrow]: {
@@ -27,14 +26,16 @@ const tooltipProps = {
     className: styles.modalTooltip,
     upgrade: true,
     appendTo: 'scrollParent',
-    content: <Text children="Previous" />,
     placement: 'left',
   },
 };
 
-const NavigationButton = ({ direction, ...props }) => (
+const NavigationButton = ({ direction, tooltipText, ...props }) => (
   <div className={classNames(styles.navigationButton, styles[direction])}>
-    <Tooltip {...tooltipProps[direction]}>
+    <Tooltip
+      content={<Text children={tooltipText} />}
+      {...tooltipProps[direction]}
+    >
       <IconButton as="button" skin="transparent" {...props}>
         {iconButtonArrow[direction]}
       </IconButton>

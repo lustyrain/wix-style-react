@@ -25,10 +25,19 @@ class ModalPreviewLayout extends React.PureComponent {
     onClose: PropTypes.func.isRequired,
     /** boolean to determine whether closing the overlay on click */
     shouldCloseOnOverlayClick: PropTypes.bool,
+    /** Tooltip close button text */
+    closeButtonTooltipText: PropTypes.string,
+    /** Tooltip prev button text */
+    prevButtonTooltipText: PropTypes.string,
+    /** Tooltip next button text */
+    nextButtonTooltipText: PropTypes.string,
   };
 
   static defaultProps = {
     shouldCloseOnOverlayClick: true,
+    closeButtonTooltipText: 'Close',
+    prevButtonTooltipText: 'Previous',
+    nextButtonTooltipText: 'Next',
   };
 
   state = { childIndexDisplayed: 0 };
@@ -56,15 +65,19 @@ class ModalPreviewLayout extends React.PureComponent {
   }
 
   _renderNavigationButtons() {
+    const { prevButtonTooltipText, nextButtonTooltipText } = this.props;
+
     return (
       <React.Fragment>
         <NavigationButton
+          tooltipText={prevButtonTooltipText}
           dataHook={dataHooks.modalPreviewLeftArrow}
           direction={arrowsDirection.leftArrow}
           onClick={() => this._onArrowClick(arrowsDirection.leftArrow)}
         />
 
         <NavigationButton
+          tooltipText={nextButtonTooltipText}
           dataHook={dataHooks.modalPreviewRightArrow}
           direction={arrowsDirection.rightArrow}
           onClick={() => this._onArrowClick(arrowsDirection.rightArrow)}
@@ -74,7 +87,14 @@ class ModalPreviewLayout extends React.PureComponent {
   }
 
   render() {
-    const { dataHook, actions, title, children, onClose } = this.props;
+    const {
+      dataHook,
+      actions,
+      title,
+      children,
+      onClose,
+      closeButtonTooltipText,
+    } = this.props;
     const { childIndexDisplayed } = this.state;
 
     const childrenArr = React.Children.toArray(children);
@@ -106,7 +126,7 @@ class ModalPreviewLayout extends React.PureComponent {
               dataHook={dataHooks.closeButtonTooltip}
               upgrade
               appendTo="scrollParent"
-              content={<Text>Close</Text>}
+              content={<Text>{closeButtonTooltipText}</Text>}
               placement="bottom"
             >
               <IconButton
