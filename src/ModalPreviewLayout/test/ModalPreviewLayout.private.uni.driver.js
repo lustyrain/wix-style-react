@@ -36,5 +36,13 @@ export const modalPreviewLayoutPrivateDriverFactory = (base, body) => {
     hoverRightNavigationButton: () => nextTooltipDriver.mouseEnter(),
 
     hoverLeftNavigationButton: () => prevTooltipDriver.mouseEnter(),
+
+    getCloseButtonTooltipText: () => closeButtonTooltipDriver.getTooltipText(),
+
+    getRightNavigationButtonTooltipText: () =>
+      nextTooltipDriver.getTooltipText(),
+
+    getLeftNavigationButtonTooltipText: () =>
+      prevTooltipDriver.getTooltipText(),
   };
 };

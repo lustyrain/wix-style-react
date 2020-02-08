@@ -30,17 +30,24 @@ const tooltipProps = {
   },
 };
 
-const NavigationButton = ({ direction, tooltipText, ...props }) => (
-  <div className={classNames(styles.navigationButton, styles[direction])}>
-    <Tooltip
-      content={<Text children={tooltipText} />}
-      {...tooltipProps[direction]}
-    >
-      <IconButton as="button" skin="transparent" {...props}>
-        {iconButtonArrow[direction]}
-      </IconButton>
-    </Tooltip>
-  </div>
-);
+const NavigationButton = ({ direction, tooltipText, ...props }) => {
+  //TODO: adding tests for checking tooltip text
+  if (typeof tooltipText !== 'string') {
+    throw new Error(`${direction} Tooltip type should be string`);
+  }
+
+  return (
+    <div className={classNames(styles.navigationButton, styles[direction])}>
+      <Tooltip
+        content={<Text children={tooltipText} />}
+        {...tooltipProps[direction]}
+      >
+        <IconButton as="button" skin="transparent" {...props}>
+          {iconButtonArrow[direction]}
+        </IconButton>
+      </Tooltip>
+    </div>
+  );
+};
 
 export default NavigationButton;

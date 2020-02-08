@@ -131,5 +131,68 @@ describe('ModalPreviewLayout', () => {
       await driver.clickLeftNavigationButton();
       expect(await driver.getCurrentChildIndex()).toBe(0);
     });
+
+    describe('Tooltip', () => {
+      const nextTooltipText = 'Siguiente';
+      const prevTooltipText = 'Previo';
+
+      it('should render default tooltips texts ', async () => {
+        const { driver } = render(
+          <ModalPreviewLayout {...requiredProps} {...props} />,
+        );
+
+        await driver.clickRightNavigationButton();
+
+        expect(await driver.getRightNavigationButtonTooltipText()).toBe('Next');
+        expect(await driver.getLeftNavigationButtonTooltipText()).toBe(
+          'Previous',
+        );
+      });
+
+      it('should render tooltip text when given "nextButtonTooltipText"', async () => {
+        const { driver } = render(
+          <ModalPreviewLayout
+            {...requiredProps}
+            nextButtonTooltipText={nextTooltipText}
+          />,
+        );
+        expect(await driver.getRightNavigationButtonTooltipText()).toBe(
+          nextTooltipText,
+        );
+      });
+
+      it('should render tooltip text when given "prevButtonTooltipText"', async () => {
+        const { driver } = render(
+          <ModalPreviewLayout
+            {...requiredProps}
+            prevButtonTooltipText={prevTooltipText}
+          />,
+        );
+
+        await driver.clickRightNavigationButton();
+        expect(await driver.getLeftNavigationButtonTooltipText()).toBe(
+          prevTooltipText,
+        );
+      });
+    });
+  });
+
+  describe('Close Button Tooltip', () => {
+    const tooltipText = 'Cerrado';
+
+    it('should render default tooltip text ', async () => {
+      const { driver } = render(<ModalPreviewLayout {...requiredProps} />);
+      expect(await driver.getCloseButtonTooltipText()).toBe('Close');
+    });
+
+    it('should render tooltip text when given "closeButtonTooltipText"', async () => {
+      const { driver } = render(
+        <ModalPreviewLayout
+          {...requiredProps}
+          closeButtonTooltipText={tooltipText}
+        />,
+      );
+      expect(await driver.getCloseButtonTooltipText()).toBe(tooltipText);
+    });
   });
 });
