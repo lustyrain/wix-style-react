@@ -101,11 +101,6 @@ class ModalPreviewLayout extends React.PureComponent {
     const hasLeft = childIndexDisplayed > 0;
     const hasRight = childIndexDisplayed < childrenArr.length - 1;
 
-    //TODO: adding tests for checking tooltip text
-    if (typeof closeButtonTooltipText !== 'string') {
-      throw new Error('Close button tooltip text should be string');
-    }
-
     return (
       <div
         id={modalPreviewIDs.overlay}
