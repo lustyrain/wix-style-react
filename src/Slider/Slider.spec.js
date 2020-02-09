@@ -83,6 +83,27 @@ describe('Slider', () => {
       expect(await driver.isDisabled()).toBe(true);
     });
 
+    describe('custom marks', () => {
+      const marks = {
+        0: '$0',
+        2: '$79',
+        4: '$129',
+        6: '$199',
+        8: '$349',
+        10: '$499',
+      };
+
+      it('should render marks when given a "marks" object', async () => {
+        const onChange = jest.fn(value => this.setState({ value }));
+        const props = { marks, onChange, value: 2 };
+        const { driver } = render(<Slider {...props} />);
+      });
+
+      it('should display the mark label when hovering the slider handle', async () => {});
+
+      it('should not display tooltip if the handler has value with no mark label', async () => {});
+    });
+
     describe(`Range mode`, () => {
       it('should be enabled when array is given to value prop', async () => {
         const onChange = jest.fn();

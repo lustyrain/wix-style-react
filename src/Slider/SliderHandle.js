@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
-
+import { dataHooks } from './constants';
 import styles from './SliderHandle.st.css';
 
 class SliderHandle extends Component {
@@ -87,12 +87,12 @@ class SliderHandle extends Component {
           onMouseLeave={this.handleMouseLeave}
           onMouseDown={this.handleMouseDown}
           onMouseUp={this.handleMouseUp}
-          data-hook="slider-handle"
+          data-hook={dataHooks.sliderHandle}
           style={{ left: `${offset}%` }}
         />
         {showTooltip && value && (
           <div
-            data-hook="slider-tooltip"
+            data-hook={dataHooks.sliderTooltip}
             className={styles.tooltip}
             style={{ left: `${offset}%` }}
           >

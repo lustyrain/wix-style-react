@@ -1,7 +1,9 @@
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
+import { dataHooks } from './constants';
 
 export const sliderUniDriverFactory = base => {
-  const $sliderHandles = () => base.$$('[data-hook="slider-handle"]');
+  const $sliderHandles = () =>
+    base.$$(`[data-hook="${dataHooks.sliderHandle}"]`);
   const $sliderDots = () => base.$$('.rc-slider-dot');
 
   return {
@@ -17,7 +19,7 @@ export const sliderUniDriverFactory = base => {
     numOfSliderHandles: () => $sliderHandles().count(),
     /** returns slider tooltip value */
     getToolTipValue: async () => {
-      const tooltip = base.$('[data-hook="slider-tooltip"]');
+      const tooltip = base.$(`[data-hook="${dataHooks.sliderTooltip}"]`);
       const exists = await tooltip.exists();
       return exists && tooltip.text();
     },

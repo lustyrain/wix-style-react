@@ -1,5 +1,8 @@
+import { dataHooks } from './constants';
+
 export default component => {
-  const sliderHandles = () => component.$$('[data-hook="slider-handle"]');
+  const sliderHandles = () =>
+    component.$$(`[data-hook="${dataHooks.sliderHandle}"]`);
   const sliderHandle = index => sliderHandles().get(index);
 
   const actions = {
@@ -8,7 +11,7 @@ export default component => {
 
     handleTooltipValue: async ({ index }) => {
       await actions.hoverHandle({ index });
-      const tooltip = component.$('[data-hook="slider-tooltip"]');
+      const tooltip = component.$(`[data-hook="${dataHooks.sliderTooltip}"]`);
       const tooltipText = await tooltip.getText();
       await actions.unHoverHandle({ index });
       return Number(tooltipText);
@@ -16,7 +19,7 @@ export default component => {
 
     isHandleTooltipDisplayed: async () => {
       const toolTipDisplayWrap = await component
-        .$$('[data-hook="slider-tooltip"]')
+        .$$(`[data-hook="${dataHooks.sliderTooltip}"]`)
         .isDisplayed();
       return Boolean(toolTipDisplayWrap[0]);
     },
