@@ -61,7 +61,8 @@ export default class Slider extends Component {
   }
 
   _renderHandle = props => {
-    const { displayTooltip, disabled, value } = this.props;
+    const { displayTooltip, disabled } = this.props;
+    const { value } = props;
     let tooltipValue;
 
     if (this._isCustomMarks()) {
