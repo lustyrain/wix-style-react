@@ -97,8 +97,9 @@ describe('Slider', () => {
 
       it('should render marks when given a "marks" object', async () => {
         const onChange = jest.fn(value => this.setState({ value }));
-        const props = { marks, onChange, value: 2 };
-        const { driver } = render(<Slider {...props} />);
+        const { driver } = render(
+          <Slider {...commonProps} onChange={onChange} />,
+        );
         expect(await driver.numOfSliderMarksLabels()).toBe(6);
       });
 
