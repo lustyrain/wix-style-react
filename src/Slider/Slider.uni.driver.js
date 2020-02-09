@@ -5,6 +5,7 @@ export const sliderUniDriverFactory = base => {
   const $sliderHandles = () =>
     base.$$(`[data-hook="${dataHooks.sliderHandle}"]`);
   const $sliderDots = () => base.$$('.rc-slider-dot');
+  const $sliderMarks = () => base.$$(`[data-hook="${dataHooks.sliderMark}"]`);
 
   return {
     ...baseUniDriverFactory(base),
@@ -17,6 +18,8 @@ export const sliderUniDriverFactory = base => {
     numOfSliderDots: () => $sliderDots().count(),
     /** returns number of slider handles */
     numOfSliderHandles: () => $sliderHandles().count(),
+    /** returns number of slider marks label */
+    numOfSliderMarksLabel: () => $sliderMarks().count(),
     /** returns slider tooltip value */
     getToolTipValue: async () => {
       const tooltip = base.$(`[data-hook="${dataHooks.sliderTooltip}"]`);

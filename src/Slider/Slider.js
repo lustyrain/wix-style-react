@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Slide from 'rc-slider';
-
+import { dataHooks } from './constants';
 import { generateID } from '../utils/generateId';
 import SliderHandle from './SliderHandle';
 import styles from './Slider.scss';
@@ -54,7 +54,11 @@ export default class Slider extends Component {
       <div>
         <div className={styles.markLine} />
         <div className={styles.markValue}>
-          {shouldRenderText && <div className={styles.markText}>{value}</div>}
+          {shouldRenderText && (
+            <div data-hook={dataHooks.sliderMark} className={styles.markText}>
+              {value}
+            </div>
+          )}
         </div>
       </div>
     );

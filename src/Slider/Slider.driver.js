@@ -5,6 +5,8 @@ const sliderDriverFactory = ({ element }) => {
   const $sliderHandles = () =>
     element.querySelectorAll(`[data-hook="${dataHooks.sliderHandle}"]`);
   const $sliderDots = () => element.querySelectorAll('.rc-slider-dot');
+  const $sliderMarks = () =>
+    element.querySelectorAll(`[data-hook="${dataHooks.sliderMark}"]`);
 
   return {
     /** returns true if element in the DOM */
@@ -18,6 +20,8 @@ const sliderDriverFactory = ({ element }) => {
     numOfSliderDots: () => $sliderDots().length,
     /** returns number of slider handles */
     numOfSliderHandles: () => $sliderHandles().length,
+    /** returns number of slider marks label */
+    numOfSliderMarksLabel: () => $sliderMarks().length,
     /** returns slider tooltip value */
     getToolTipValue: () => {
       const tooltip = element.querySelector(

@@ -97,6 +97,7 @@ describe('Slider', () => {
         const onChange = jest.fn(value => this.setState({ value }));
         const props = { marks, onChange, value: 2 };
         const { driver } = render(<Slider {...props} />);
+        expect(await driver.numOfSliderMarksLabel()).toBe(6);
       });
 
       it('should display the mark label when hovering the slider handle', async () => {});
