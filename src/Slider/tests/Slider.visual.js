@@ -39,6 +39,20 @@ const tests = [
           displayMarks: true,
         },
       },
+      {
+        it: 'custom marks',
+        props: {
+          marks: {
+            0: '$0',
+            2: '$79',
+            4: '$129',
+            6: '$199',
+            8: '$349',
+            10: '$499',
+          },
+          displayMarks: true,
+        },
+      },
     ],
   },
 ];
