@@ -19,8 +19,8 @@ export const sliderUniDriverFactory = base => {
     numOfSliderDots: () => $sliderDots().count(),
     /** returns number of slider handles */
     numOfSliderHandles: () => $sliderHandles().count(),
-    /** returns number of slider marks label */
-    numOfSliderMarksLabel: () => $sliderMarks().count(),
+    /** returns number of slider marks labels */
+    numOfSliderMarksLabels: () => $sliderMarks().count(),
     /** returns slider tooltip value */
     getToolTipValue: async () => {
       const tooltip = base.$(`[data-hook="${dataHooks.sliderTooltip}"]`);

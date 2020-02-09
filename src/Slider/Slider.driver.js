@@ -20,8 +20,8 @@ const sliderDriverFactory = ({ element }) => {
     numOfSliderDots: () => $sliderDots().length,
     /** returns number of slider handles */
     numOfSliderHandles: () => $sliderHandles().length,
-    /** returns number of slider marks label */
-    numOfSliderMarksLabel: () => $sliderMarks().length,
+    /** returns number of slider marks labels */
+    numOfSliderMarksLabels: () => $sliderMarks().length,
     /** returns slider tooltip value */
     getToolTipValue: () => {
       const tooltip = element.querySelector(
