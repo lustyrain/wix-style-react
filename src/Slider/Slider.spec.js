@@ -106,11 +106,17 @@ describe('Slider', () => {
         const { driver } = render(<Slider {...props} />);
 
         await driver.hoverHandle({ handleIndex: 0 });
-
         expect(await driver.getToolTipValue()).toBe(marks[2]);
       });
 
-      it('should not display tooltip if the handler has value with no mark label', async () => {});
+      it('should not display tooltip if the handler has value with no mark label', async () => {
+        const onChange = jest.fn(value => this.setState({ value }));
+        const props = { marks, onChange, value: 1 };
+        const { driver } = render(<Slider {...props} />);
+
+        await driver.hoverHandle({ handleIndex: 0 });
+        expect(await driver.getToolTipValue()).toBeFalsy();
+      });
     });
 
     describe(`Range mode`, () => {
