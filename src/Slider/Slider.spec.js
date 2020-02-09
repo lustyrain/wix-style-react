@@ -100,7 +100,9 @@ describe('Slider', () => {
         const { driver } = render(
           <Slider {...commonProps} onChange={onChange} />,
         );
-        expect(await driver.numOfSliderMarksLabels()).toBe(6);
+        expect(await driver.numOfSliderMarksLabels()).toBe(
+          Object.values(marks).length,
+        );
       });
 
       it('should display the mark label when hovering the slider handle', async () => {
