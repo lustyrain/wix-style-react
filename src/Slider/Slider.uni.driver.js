@@ -5,7 +5,8 @@ export const sliderUniDriverFactory = base => {
   const $sliderHandles = () =>
     base.$$(`[data-hook="${dataHooks.sliderHandle}"]`);
   const $sliderDots = () => base.$$('.rc-slider-dot');
-  const $sliderMarks = () => base.$$(`[data-hook="${dataHooks.sliderMark}"]`);
+  const $sliderMarks = () =>
+    base.$$(`[data-hook="${dataHooks.sliderMarkLabel}"]`);
 
   return {
     ...baseUniDriverFactory(base),

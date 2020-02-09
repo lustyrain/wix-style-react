@@ -55,7 +55,10 @@ export default class Slider extends Component {
         <div className={styles.markLine} />
         <div className={styles.markValue}>
           {shouldRenderText && (
-            <div data-hook={dataHooks.sliderMark} className={styles.markText}>
+            <div
+              data-hook={dataHooks.sliderMarkLabel}
+              className={styles.markText}
+            >
               {value}
             </div>
           )}

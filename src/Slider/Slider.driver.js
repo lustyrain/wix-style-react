@@ -6,7 +6,7 @@ const sliderDriverFactory = ({ element }) => {
     element.querySelectorAll(`[data-hook="${dataHooks.sliderHandle}"]`);
   const $sliderDots = () => element.querySelectorAll('.rc-slider-dot');
   const $sliderMarks = () =>
-    element.querySelectorAll(`[data-hook="${dataHooks.sliderMark}"]`);
+    element.querySelectorAll(`[data-hook="${dataHooks.sliderMarkLabel}"]`);
 
   return {
     /** returns true if element in the DOM */
