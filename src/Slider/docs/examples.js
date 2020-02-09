@@ -124,7 +124,7 @@ class SliderWithState extends React.Component {
 export const customMarks = `
 class SliderWithState extends React.Component {
 
-  state = { value: 3 };
+  state = { value: 0 };
 
   change = value => this.setState({ value });
 
@@ -142,9 +142,8 @@ class SliderWithState extends React.Component {
     return (
        <Layout>
         <Cell>
-        <Slider marks={marks} onChange={this.change} min={-10}
-        max={100} value={value} />
-         </Cell>
+          <Slider marks={marks} onChange={this.change} min={-10} max={100} value={value} />
+        </Cell>
       </Layout>
     );
   }
