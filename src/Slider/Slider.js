@@ -33,8 +33,10 @@ export default class Slider extends Component {
       const { min, max, step } = this.props;
 
       range({ min, max, step }).map(entry => {
+        const shouldRenderMarkLabel = entry === min || entry === max;
+
         marksLabels[entry] = {
-          label: this._createMarkNode(entry, entry === min || entry === max),
+          label: this._createMarkNode(entry, shouldRenderMarkLabel),
         };
       });
     }
@@ -44,17 +46,15 @@ export default class Slider extends Component {
 
   _isCustomMarks() {
     const { marks } = this.props;
-    return !(
-      Object.entries(marks).length === 0 && marks.constructor === Object
-    );
+    return Object.entries(marks).length > 0;
   }
 
-  _createMarkNode(value, shouldRenderText) {
+  _createMarkNode(value, shouldRenderMarkLabel) {
     return (
       <div>
         <div className={styles.markLine} />
         <div className={styles.markValue}>
-          {shouldRenderText && (
+          {shouldRenderMarkLabel && (
             <div
               data-hook={dataHooks.sliderMarkLabel}
               className={styles.markText}
