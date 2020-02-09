@@ -62,17 +62,17 @@ export default class Slider extends Component {
 
   _renderHandle = props => {
     const { displayTooltip, disabled } = this.props;
-    const { value, index } = props;
+    const { index } = props;
     let tooltipValue;
 
     if (this._isCustomMarks()) {
       const { marks } = this.props;
-      if (marks.hasOwnProperty(value)) {
-        tooltipValue = marks[value].toString();
-      } else {
-        tooltipValue = undefined;
+      const { value: key } = props;
+      if (marks.hasOwnProperty(key)) {
+        tooltipValue = marks[key].toString();
       }
     } else {
+      const { value } = props;
       tooltipValue = value.toString();
     }
 
