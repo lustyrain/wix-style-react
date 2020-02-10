@@ -80,12 +80,12 @@
   display: none;
 }
 
-.root:hasLeft .navigationButton.left-arrow{
+.navigationButton.left-arrow{
   display: block;
   left: 36px;
 }
 
-.root:hasRight .navigationButton.right-arrow{
+.navigationButton.right-arrow{
   display: block;
   right: 36px;
 }

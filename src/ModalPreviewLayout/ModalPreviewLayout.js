@@ -64,24 +64,27 @@ class ModalPreviewLayout extends React.PureComponent {
     };
   }
 
-  _renderNavigationButtons() {
+  _renderNavigationButtons(hasLeft, hasRight) {
     const { prevButtonTooltipText, nextButtonTooltipText } = this.props;
 
     return (
       <React.Fragment>
-        <NavigationButton
-          tooltipText={prevButtonTooltipText}
-          dataHook={dataHooks.modalPreviewLeftArrow}
-          direction={arrowsDirection.leftArrow}
-          onClick={() => this._onArrowClick(arrowsDirection.leftArrow)}
-        />
-
-        <NavigationButton
-          tooltipText={nextButtonTooltipText}
-          dataHook={dataHooks.modalPreviewRightArrow}
-          direction={arrowsDirection.rightArrow}
-          onClick={() => this._onArrowClick(arrowsDirection.rightArrow)}
-        />
+        {hasLeft && (
+          <NavigationButton
+            tooltipText={prevButtonTooltipText}
+            dataHook={dataHooks.modalPreviewLeftArrow}
+            direction={arrowsDirection.leftArrow}
+            onClick={() => this._onArrowClick(arrowsDirection.leftArrow)}
+          />
+        )}
+        {hasRight && (
+          <NavigationButton
+            tooltipText={nextButtonTooltipText}
+            dataHook={dataHooks.modalPreviewRightArrow}
+            direction={arrowsDirection.rightArrow}
+            onClick={() => this._onArrowClick(arrowsDirection.rightArrow)}
+          />
+        )}
       </React.Fragment>
     );
   }
@@ -105,7 +108,7 @@ class ModalPreviewLayout extends React.PureComponent {
       <div
         id={modalPreviewIDs.overlay}
         data-hook={dataHook}
-        {...styles('root', { hasLeft, hasRight }, this.props)}
+        {...styles('root', {}, this.props)}
         onClick={this._onOverlayClick(onClose)}
       >
         <div className={styles.header}>
@@ -153,7 +156,7 @@ class ModalPreviewLayout extends React.PureComponent {
           >
             {childrenArr[childIndexDisplayed]}
           </div>
-          {this._renderNavigationButtons()}
+          {this._renderNavigationButtons(hasLeft, hasRight)}
         </div>
       </div>
     );
