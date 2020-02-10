@@ -1,8 +1,9 @@
-import popoverMenuDriverFactory from '../PopoverMenu/PopoverMenu.driver';
-import { PopoverMenuTestkit } from '../../testkit/beta';
-import tooltipDriverFactory from '../Tooltip/Tooltip.driver';
-import buttonDriverFactory from '../Deprecated/Button/Button.driver.js';
 import { INTERNAL_DRIVER_SYMBOL } from '../../test/utils/private-drivers';
+import { PopoverMenuTestkit } from '../../testkit/beta';
+import buttonDriverFactory from '../Deprecated/Button/Button.driver.js';
+import popoverMenuDriverFactory from '../PopoverMenu/PopoverMenu.driver';
+import tooltipDriverFactory from '../Tooltip/Tooltip.driver';
+import { dataHooks } from './constants';
 
 const tableActionCellDriverFactory = ({ element, wrapper, component }) => {
   const getPrimaryActionPlaceholder = () =>
@@ -99,7 +100,7 @@ const tableActionCellDriverFactory = ({ element, wrapper, component }) => {
     clickPopoverMenu: () =>
       upgrade
         ? getHiddenActionsPopoverMenuDriver()
-            .getTriggerElement('table-action-cell-trigger-element')
+            .getTriggerElement(dataHooks.triggerElement)
             .click()
         : getHiddenActionsPopoverMenuDriver().click(),
     /** Click on a hidden secondary action (requires the <PopoverMenu/> to be open) */

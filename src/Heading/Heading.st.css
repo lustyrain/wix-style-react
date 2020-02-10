@@ -10,6 +10,8 @@
 
 .root {
   -st-states: appearance(enum(H1, H2, H3, H4, H5, H6)), light(boolean);
+  font-weight: normal;
+  margin: 0;
 }
 
 .root:appearance(H1) {
@@ -59,9 +61,4 @@
 
 .root:appearance(H6):light {
   color: value(D80);
-}
-
-.root {
-  font-weight: normal;
-  margin: 0;
 }

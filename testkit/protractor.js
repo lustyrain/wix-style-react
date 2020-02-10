@@ -167,6 +167,7 @@ export const warningIndicatorTestkitFactory = protractorUniTestkitFactoryCreator
 export const variableInputTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/VariableInput/VariableInput.uni.driver')));
 export const imageTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Image/Image.uni.driver')));
 export const sidePanelTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/SidePanel/SidePanel.uni.driver')));
+export const fontUpgradeTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/FontUpgrade/FontUpgrade.uni.driver')));
 export const drillViewTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.protractor.driver')));
 export const cardHeaderTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Card/Header/Header.uni.driver')));
 export const sideMenuTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.uni.driver')));

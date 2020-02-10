@@ -155,6 +155,7 @@ declare namespace VanillaTestkit {
   export const variableInputTestkitFactory: any;
   export const imageTestkitFactory: VanillaUniTestkitFactory<ImageDriver>;
   export const sidePanelTestkitFactory: VanillaUniTestkitFactory<SidePanelDriver>;
+  export const fontUpgradeTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;

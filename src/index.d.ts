@@ -160,3 +160,4 @@ export const Swatches: any;
 export const SidebarSectionTitle: any;
 export const SidebarSectionItem: any;
 export { default as SidePanel, SidePanelProps } from './SidePanel';
+export { default as FontUpgrade, FontUpgradeProps } from './FontUpgrade';

@@ -460,5 +460,8 @@
   },
   "SidePanel": {
     "path": "src/SidePanel"
+  },
+  "FontUpgrade": {
+    "path": "src/FontUpgrade"
   }
 }

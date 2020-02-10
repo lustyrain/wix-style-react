@@ -79,7 +79,7 @@ Previous version documentation: https://wix-wix-style-react-v6.surge.sh/
 ## 🚀 Usage
 
 ```jsx
-import Button from 'wix-style-react/Button';
+import { Button } from 'wix-style-react';
 
 const App = () => (
   <Button>

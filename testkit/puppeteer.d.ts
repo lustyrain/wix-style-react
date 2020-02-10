@@ -129,6 +129,7 @@ export const warningIndicatorTestkitFactory: any;
 export const variableInputTestkitFactory: any;
 export const imageTestkitFactory: any;
 export const sidePanelTestkitFactory: any;
+export const fontUpgradeTestkitFactory: any;
 export const drillViewTestkitFactory: any;
 export const cardHeaderTestkitFactory: any;
 export const sideMenuTestkitFactory: any;

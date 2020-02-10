@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import ColorInput from '../ColorInput';
-import { Layout } from '../../Layout';
+import { Cell, Layout } from '../../Layout';
 
 const TestContainer = ({ children }) => (
   <div
@@ -10,7 +10,7 @@ const TestContainer = ({ children }) => (
       position: 'absolute',
       top: 0,
       left: 0,
-      width: '100%',
+      width: '1024px',
       height: '100%',
       backgroundColor: '#f0f4f7',
     }}
@@ -28,18 +28,30 @@ const tests = [
         props: {
           storyFunction: () => (
             <TestContainer>
-              <div style={{ margin: '10px', width: '50%' }}>
+              <div style={{ margin: '10px' }}>
                 <Layout>
-                  <ColorInput value="#FF0000" size="large" />
-                  <ColorInput value="#FF0000" size="medium" />
-                  <ColorInput value="#FF0000" size="small" />
+                  <Cell span={4}>
+                    <ColorInput value="#FF0000" size="large" />
+                  </Cell>
+                  <Cell span={4}>
+                    <ColorInput value="#FF0000" size="medium" />
+                  </Cell>
+                  <Cell span={4}>
+                    <ColorInput value="#FF0000" size="small" />
+                  </Cell>
                 </Layout>
               </div>
-              <div style={{ margin: '10px', width: '50%' }}>
+              <div style={{ margin: '10px' }}>
                 <Layout>
-                  <ColorInput value="#FF0000" error />
-                  <ColorInput value="" />
-                  <ColorInput value="#FF0000" disabled />
+                  <Cell span={4}>
+                    <ColorInput value="#FF0000" error />
+                  </Cell>
+                  <Cell span={4}>
+                    <ColorInput value="" />
+                  </Cell>
+                  <Cell span={4}>
+                    <ColorInput value="#FF0000" disabled />
+                  </Cell>
                 </Layout>
               </div>
             </TestContainer>

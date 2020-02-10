@@ -177,3 +177,4 @@ export { default as VariableInput } from './VariableInput';
 export { default as Image } from './Image';
 export { default as Selector } from './Selector';
 export { default as SidePanel } from './SidePanel';
+export { default as FontUpgrade } from './FontUpgrade';

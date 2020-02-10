@@ -146,6 +146,7 @@ require('./WIP');
 
 // Next API
 require('../src/beta/PopoverMenu/docs/index.story');
+require('../src/FontUpgrade/docs/index.story');
 
 // Styling
 require('../src/Typography/docs/cssClasses.story');

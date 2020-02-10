@@ -1,16 +1,16 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import More from 'wix-ui-icons-common/More';
+import React from 'react';
 import ChevronRight from 'wix-ui-icons-common/ChevronRight';
-
-import style from './TableActionCell.st.css';
-import HoverSlot from './HoverSlot';
-import Tooltip from '../Tooltip/Tooltip';
+import More from 'wix-ui-icons-common/More';
+import PopoverMenu from '../beta/PopoverMenu';
 import Button from '../Deprecated/Button';
 import IconButton from '../IconButton';
-import PopoverMenu from '../beta/PopoverMenu';
 import OldPopoverMenu from '../PopoverMenu';
 import OldPopoverMenuItem from '../PopoverMenuItem';
+import Tooltip from '../Tooltip/Tooltip';
+import { dataHooks } from './constants';
+import HoverSlot from './HoverSlot';
+import style from './TableActionCell.st.css';
 
 /* eslint-disable react/prop-types */
 function renderPrimaryAction({ text, theme, onClick, disabled }) {
@@ -71,25 +71,27 @@ function renderHiddenActions(actions, popoverMenuProps, upgrade) {
       placement="top"
       textSize="small"
       triggerElement={
-        <IconButton
-          skin="inverted"
-          dataHook="table-action-cell-trigger-element"
-        >
+        <IconButton skin="inverted" dataHook={dataHooks.triggerElement}>
           <More />
         </IconButton>
       }
       {...popoverMenuProps}
     >
-      {actions.map(({ text, icon, onClick, disabled, dataHook }, index) => (
-        <PopoverMenu.MenuItem
-          key={index}
-          dataHook={dataHook || 'table-action-cell-popover-menu-item'}
-          prefixIcon={icon}
-          onClick={() => onClick()}
-          text={text}
-          disabled={disabled}
-        />
-      ))}
+      {actions.map(
+        ({ text, icon, onClick, disabled, dataHook, divider }, index) =>
+          !divider ? (
+            <PopoverMenu.MenuItem
+              key={index}
+              dataHook={dataHook || 'table-action-cell-popover-menu-item'}
+              prefixIcon={icon}
+              onClick={() => onClick()}
+              text={text}
+              disabled={disabled}
+            />
+          ) : (
+            <PopoverMenu.Divider />
+          ),
+      )}
     </PopoverMenu>
   ) : (
     <OldPopoverMenu
@@ -205,6 +207,7 @@ TableActionCell.propTypes = {
    * `disabled` is an optional prop for the secondary action to be disabled
    * `dataHook` is an optional prop for accessing the action in tests
    * 'disabledDescription' is an optional prop that indicates what string to display in tooltip when action is visible and disabled (if non is provided, the text prop is used)
+   * 'divider' is an optional prop to display a divider between the action items (supported only when `upgrade` prop is enabled)
    */
   secondaryActions: PropTypes.arrayOf(
     PropTypes.shape({
@@ -214,6 +217,7 @@ TableActionCell.propTypes = {
       disabled: PropTypes.bool,
       dataHook: PropTypes.string,
       disabledDescription: PropTypes.string,
+      divider: PropTypes.bool,
     }),
   ),
 

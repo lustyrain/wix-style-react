@@ -1,9 +1,9 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
-import { dataHooks } from "./constants";
+import { dataHooks } from './constants';
 
-export const <%= componentName %>DriverFactory = base => {
+export const <%= componentName %>DriverFactory = (base, body) => {
   return {
-    ...baseUniDriverFactory(base),
+    ...baseUniDriverFactory(base, body),
 
     /** Get the current count */
     getCountText: async () =>

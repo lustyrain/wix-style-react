@@ -17,7 +17,7 @@ describe('Layout', () => {
     it('should set `gridTemplateColumns` style', () => {
       const layout = shallow(<Layout cols={5} />);
       expect(layout.prop('style').gridTemplateColumns).toEqual(
-        'repeat(5, 1fr)',
+        'repeat(5, minmax(0, 1fr))',
       );
     });
 

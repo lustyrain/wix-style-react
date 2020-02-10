@@ -8,19 +8,6 @@ import { dataHooks } from './constants';
 
 /** <%= description %> */
 class <%= ComponentName %> extends React.PureComponent {
-  static displayName = '<%= ComponentName %>';
-
-  static propTypes = {
-    dataHook: PropTypes.string,
-
-    /** Text for the button */
-    buttonText: PropTypes.string,
-  };
-
-  static defaultProps = {
-    buttonText: 'Click me!',
-  };
-
   state = {
     count: 0,
   };
@@ -37,7 +24,10 @@ class <%= ComponentName %> extends React.PureComponent {
     const isEven = count % 2 === 0;
 
     return (
-      <div {...styles('root', { even: isEven, odd: !isEven }, this.props)} data-hook={dataHook}>
+      <div
+        {...styles('root', { even: isEven, odd: !isEven }, this.props)}
+        data-hook={dataHook}
+      >
         <Text dataHook={dataHooks.<%= componentName %>Count}>
           You clicked this button {isEven ? 'even' : 'odd'} number (
           <span className={styles.number}>
@@ -58,5 +48,21 @@ class <%= ComponentName %> extends React.PureComponent {
     );
   }
 }
+
+<%= ComponentName %>.displayName = '<%= ComponentName %>';
+
+<%= ComponentName %>.propTypes = {
+  /** Applied as data-hook HTML attribute that can be used in the tests */
+  dataHook: PropTypes.string,
+
+  /** A css class to be applied to the component's root element */
+  className: PropTypes.string,
+
+  /** Text for the button */
+  buttonText: PropTypes.string,
+};
+
+<%= ComponentName %>.defaultProps = {
+};
 
 export default <%= ComponentName %>;

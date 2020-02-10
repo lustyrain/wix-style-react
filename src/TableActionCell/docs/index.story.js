@@ -44,6 +44,9 @@ import DisabledSecondaryExampleRaw from '!raw-loader!./examples/DisabledSecondar
 import DisabledPrimaryExample from './examples/DisabledPrimaryExample';
 import DisabledPrimaryExampleRaw from '!raw-loader!./examples/DisabledPrimaryExample';
 
+import SecondaryWithDividerExample from './examples/SecondaryWithDividerExample';
+import SecondaryWithDividerExampleRaw from '!raw-loader!./examples/SecondaryWithDividerExample';
+
 const primaryActionOptions1 = {
   text: 'Details',
   theme: 'fullblue',
@@ -210,6 +213,15 @@ export default {
           code={DisabledPrimaryExampleRaw}
         >
           <DisabledPrimaryExample />
+        </CodeExample>
+      </div>
+
+      <div className={style.example}>
+        <CodeExample
+          title="Secondary Actions with Divider"
+          code={SecondaryWithDividerExampleRaw}
+        >
+          <SecondaryWithDividerExample />
         </CodeExample>
       </div>
     </div>

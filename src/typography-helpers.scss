@@ -11,12 +11,12 @@
 
 $typography_headers: (
   /*    (font-family, font-size, line-height, color, uppercase, letter-spacing) */
-  "h1": ($FontMedium, 36px, 48px, ($D10, $D80), null     , null ),
-  "h2": ($FontMedium, 28px, 36px, ($D10, $D80), null     , null ),
-  "h3": ($FontRoman , 20px, 24px, ($D10, $D80), null     , null ),
-  "h4": ($FontRoman , 18px, 24px, ($D10, $D80), null     , null ),
-  "h5": ($FontMedium, 12px, 24px, ($D20, $D50), UPPERCASE, 1px  ),
-  "h6": ($FontMedium, 10px, 18px, ($D10, $D50), UPPERCASE, 1.2px),
+  "h1": ($FontMedium, 36px, 48px, ($D10, $D80), null     , null , bold),
+  "h2": ($FontMedium, 28px, 36px, ($D10, $D80), null     , null , bold),
+  "h3": ($FontRoman , 20px, 24px, ($D10, $D80), null     , null , null),
+  "h4": ($FontRoman , 18px, 24px, ($D10, $D80), null     , null , null),
+  "h5": ($FontMedium, 12px, 24px, ($D20, $D50), UPPERCASE, 1px  , bold),
+  "h6": ($FontMedium, 10px, 18px, ($D10, $D50), UPPERCASE, 1.2px, bold),
 );
 
 @mixin HeadingNoColor($tagName) {
@@ -34,6 +34,16 @@ $typography_headers: (
   @if $letterSpacing != null {
     letter-spacing: $letterSpacing;
   }
+
+  @if nth($heading,5) == bold {
+    font-weight: 400; /* IE11 */
+    font-weight: var(--wsr-font-weight-bold, 400);
+  } @else {
+    font-weight: 400; /* IE11 */
+    font-weight: var(--wsr-font-weight-regular, 400);
+  }
+
+  font-weight: nth($heading, 7);
 }
 
 @mixin HeadingColor($tagName, $light) {

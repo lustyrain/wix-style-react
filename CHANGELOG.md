@@ -16,8 +16,22 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<TableActionCell/>` - add `divider` field for the secondary actions [#4954](https://github.com/wix/wix-style-react/pull/4954)
+
+## 7.41.0 - 2020-02-09
+
+### Fixed
+- `<Layout/>` - Fixed a bug discovered when Chrome 80 was released [#4964](https://github.com/wix/wix-style-react/pull/4964)
+
 ### Added:
+
+- `<FontUpgrade/>` - New provider component [#4963](https://github.com/wix/wix-style-react/pull/4963)
 - `<Accordion/>` - Added skin prop [#4803](https://github.com/wix/wix-style-react/pull/4803)
+
+### Docs
+
+- Updated "3.12 Tag Input" story documentation [#4176](https://github.com/wix/wix-style-react/pull/4176)
 
 ## 7.40.0 - 2020-02-05
 
@@ -27,6 +41,7 @@ Types of changes:
 - `<CloseButton/>` - add large size support [#4941](https://github.com/wix/wix-style-react/pull/4941)
 
 ### Changed
+
 - `<Slider/>`- changing tooltip color [#4955](https://github.com/wix/wix-style-react/pull/4955)
 
 ### Fixed

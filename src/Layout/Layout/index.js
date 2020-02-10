@@ -17,7 +17,7 @@ const Layout = ({
       gridGap: gap,
       justifyItems,
       alignItems,
-      gridTemplateColumns: cols ? `repeat(${cols}, 1fr)` : undefined,
+      gridTemplateColumns: cols ? `repeat(${cols}, minmax(0, 1fr))` : undefined,
     }}
     className={styles.root}
     children={children}

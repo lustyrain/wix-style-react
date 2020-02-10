@@ -14,7 +14,7 @@ const pr =
 const domain = pr ? `wix-style-react-pr-${pr}` : 'wix-style-react';
 console.log(`params: token=${token} pr=${pr} domain=${domain}`);
 
-const deploymentCmd = `npx now alias --token=${token} $(npx now ./storybook-static --no-clipboard --token=${token} --public) ${domain}`;
+const deploymentCmd = `npx now alias --token=${token} $(npx now ./storybook-static --confirm --no-clipboard --token=${token} --public) ${domain}`;
 console.log(`running now deployment: ${deploymentCmd}`);
 const codeResult = shell(deploymentCmd).toString();
 console.log('Done with result:', codeResult);

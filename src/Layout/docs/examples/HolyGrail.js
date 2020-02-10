@@ -12,23 +12,11 @@ export default () => (
       <Cell>
         {'<Layout>'}
         <Layout>
-          <Cell span={1}>
-            {text(
-              '<Cell span={1}><div style={width: "400px"}>Left width=400</div></Cell>',
-              { width: '400px' },
-            )}
+          <Cell span={2}>{text('<Cell span={2}><div >Left</div></Cell>')}</Cell>
+          <Cell span={8}>
+            {text('<Cell span={8}>Middle fluid width</Cell>')}
           </Cell>
-          <Cell span={10}>
-            {text('<Cell span={10}>Middle fluid width</Cell>')}
-          </Cell>
-          <Cell span={1}>
-            {text(
-              '<Cell span={1}><div style={width: "300px"}>Right</div></Cell>',
-              {
-                width: '300px',
-              },
-            )}
-          </Cell>
+          <Cell span={2}>{text('<Cell span={2}><div>Right</div></Cell>')}</Cell>
         </Layout>
         {'</Layout>'}
       </Cell>
