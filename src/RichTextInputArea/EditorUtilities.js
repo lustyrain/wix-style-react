@@ -129,7 +129,11 @@ const convertToHtml = editorState => {
     },
   };
 
-  return stateToHTML(editorState.getCurrentContent(), markupConfig);
+  const html = stateToHTML(editorState.getCurrentContent(), markupConfig);
+
+  // Getting rid of unexceptional extra empty line-breaks manually until it would be adopted and supported by `stateToHTML`:
+  // http://github.com/sstur/draft-js-utils/pull/84
+  return html.replace(/<p><br>/g, '<p>');
 };
 
 const isEditorFocused = editorState => editorState.getSelection().getHasFocus();
