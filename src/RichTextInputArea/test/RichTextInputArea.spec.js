@@ -57,16 +57,31 @@ describe('RichTextInputArea', () => {
       expect(content).toEqual('hello\n\n\nworld');
     });
 
-    it('should invoke `onChange` with parsed HTML value after typing text', async () => {
-      const callback = jest.fn();
-      const text = 'Some text';
-      const expectedHtmlValue = `<p>${text}</p>`;
-      const driver = createDriver(<RichTextInputArea onChange={callback} />);
+    describe('onChange', () => {
+      it('should invoke with correct params after typing text', async () => {
+        const callback = jest.fn();
+        const text = 'Some text';
+        const expectedHtmlValue = `<p>${text}</p>`;
+        const driver = createDriver(<RichTextInputArea onChange={callback} />);
 
-      await driver.enterText(text);
+        await driver.enterText(text);
 
-      expect(callback).toHaveBeenCalledWith(expectedHtmlValue, {
-        plainText: text,
+        expect(callback).toHaveBeenCalledWith(expectedHtmlValue, {
+          plainText: text,
+        });
+      });
+
+      it('should not invoke with extra line-break', async () => {
+        const callback = jest.fn();
+        const text = '\n';
+        const expectedHtmlValue = `<p>${text}</p>`;
+        const driver = createDriver(<RichTextInputArea onChange={callback} />);
+
+        await driver.enterText(text);
+
+        expect(callback).toHaveBeenCalledWith(expectedHtmlValue, {
+          plainText: text,
+        });
       });
     });
 
