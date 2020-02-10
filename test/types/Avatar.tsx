@@ -33,9 +33,14 @@ function AvatarWithAllProps() {
       color="A1"
       dataHook="sadasd"
       imgProps={{alt: 'asd'}}
-      placeholder={<span>blalbal</span>}
+      placeholder={<div />}
       text="some text"
       title="some title"
+      shape="circle"
+      presence="online"
+      indication={<div />}
+      onIndicationClick={() => {}}
+      onClick={() => {}}
     />
   );
 }

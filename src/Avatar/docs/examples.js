@@ -88,3 +88,7 @@ export const indication = `
           name={'John Doe'} />
 </Box>
 `;
+
+export const click = `
+<Avatar name="John H. Doe" onClick={() => console.log('Avatar click!')} />
+`;

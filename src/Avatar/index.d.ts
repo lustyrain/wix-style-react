@@ -7,7 +7,7 @@ export interface AvatarProps {
   imgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
   ariaLabel?: string;
   title?: string;
-  shape?: 'circle'|'square';
+  shape?: 'circle' | 'square';
   size?:
     | 'size90'
     | 'size72'
@@ -23,6 +23,7 @@ export interface AvatarProps {
   presence?: 'online' | 'offline' | 'busy';
   indication?: React.ReactNode;
   onIndicationClick?(): void;
+  onClick?(): void;
 }
 
 declare const Avatar: React.SFC<AvatarProps>;

@@ -45,13 +45,18 @@
       indication,
       shape(enum(circle,square)),
       presenceType(enum(busy, online, offline)),
-      presence;
+      presence,
+      clickable;
   position: relative;
   display: inline-block;
 }
 
 .avatarContainer:presence .coreAvatar {
   padding-right: 2px;
+}
+
+.avatarContainer:clickable .avatar {
+  cursor: pointer;
 }
 
 .presence {
@@ -204,6 +209,11 @@
   height: 48px;
   width: 48px;
   border-radius: 30px;
+  outline: none;
+}
+
+.avatar:focus-visible {
+  box-shadow: 0 0 0 3px value(F00);
 }
 
 .avatar:contentType(image)::content {

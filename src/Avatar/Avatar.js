@@ -31,6 +31,7 @@ const Avatar = props => {
     text,
     placeholder,
     name,
+    onClick,
     ...rest
   } = props;
 
@@ -55,6 +56,7 @@ const Avatar = props => {
           indication,
           presence,
           presenceType: presence,
+          clickable: !!onClick,
         })}
       >
         <div className={styles.coreAvatar}>
@@ -68,6 +70,7 @@ const Avatar = props => {
               ),
               text,
               name,
+              onClick,
             }}
             className={classNames(
               styles.avatar,
@@ -119,6 +122,11 @@ const CoreAvatarPropTypes = {
   ariaLabel: PropTypes.string,
   /** HTML title attribute value. To be applied on the root element. */
   title: PropTypes.string,
+  /**
+   * Click event handler (when this property is provided the component will be clickable
+   * on hover and will have a pointer cursor).
+   */
+  onClick: PropTypes.func,
 };
 
 Avatar.propTypes = {

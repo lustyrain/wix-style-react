@@ -185,6 +185,11 @@ export default {
           ].map(({ title, source }) =>
             columns([description({ title }), code({ source })]),
           ),
+
+          columns([
+            description({ title: 'Click' }),
+            code({ source: examples.click }),
+          ]),
         ],
       }),
 
